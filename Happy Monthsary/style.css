@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color: #3c4c24;
+    --text-white: #fff;
+    --text-slate-300: #cbd5e1;
+    --text-slate-400: #94a3b8;
+    --nav-bg: rgba(30, 41, 59, 0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: inter, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+@font-face {
+    font-family: myFont;
+    src: url(LovelyLove.otf);
+    color: black;
+}
+
+@font-face {
+    font-family: myFont2;
+    src: url(LoverLoves.ttf);
+    color: black;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    max-width: 48rem;
+}
+
+.page-title-section {
+    text-align: center;
+}
+
+.header_1 {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-family: myFont;
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--text-slate-400);
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    padding: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    transition: all 500ms ease;
+    font-family: myFont2;
+}
+
+.navbar a {
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-slate-300);
+    transition: all 300ms ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--text-white);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .navbar {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        font-size: 1.125rem;
+    }
+}
+
+.content-box {
+    max-width: 42rem;
+    color: var(--text-slate-300);
+    text-align: center;
+    font-size: 2rem;
+    font-family: myFont;
+}
+
+
+/* Image Styling */
+.image {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+}
+
+/*card flip code starts here*/
+
+/* Flip Card Container */
+.flip-card {
+    background-color: transparent;
+    width: 450px;
+    height: 350px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(.4, 2, .3, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Faces */
+.front_card,
+.back_card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.front_card {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.back_card {
+    background: #670E10;
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+/*snaps content*/
+
+/* Additional styling for the snaps page */
+.snaps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.snap-card {
+    position: relative;
+    width: 100%;
+    padding-top: 50%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.snap-card:hover {
+    transform: scale(1.03);
+}
+
+.snap-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.snap-card:hover .snap-image {
+    opacity: 0.7;
+}
+
+.snap-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    padding: 20px;
+}
+
+.snap-card:hover .snap-text-overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+/* .main-container {
+    min-height: 100vh;
+} */
+
+/* .content {
+    padding-top: 80px;
+    padding-bottom: 20px;
+} */
